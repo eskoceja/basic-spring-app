@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author List</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Author List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Books</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.id}"></td>
+        <td th:text="${author.name}"></td>
+        <td>
+            <ul>
+                <li th:each="book : ${author.books}" th:text="${book.title}"></li>
+            </ul>
+        </td>
+        <td>
+            <a th:href="@{/authors/{id}(id=${author.id})}">View</a> |
+            <a th:href="@{/authors/{id}/edit(id=${author.id})}">Edit</a> |
+            <a th:href="@{/authors/{id}/delete(id=${author.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/authors/new">Create New Author</a>
+
+</body>
+</html>

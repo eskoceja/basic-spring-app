@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Update Book</h1>
+
+<form th:action="@{/books/{id}(id=${book.id})}" th:object="${book}" method="post">
+    <div>
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" required>
+    </div>
+    <div>
+        <label>Author:</label>
+        <input type="text" th:field="*{author.name}" required>
+    </div>
+    <div>
+        <button type="submit">Update</button>
+    </div>
+</form>
+
+</body>
+</html>
