@@ -11,7 +11,10 @@ CRUD operations should be associates with the book entity. The mappedBy attribut
 relationship. Because these two classes are instances, they should have an empty constructor as well. 
 
 The Author and Book repositories have to be extended from JpaRepository per instructions and they each take in an 
-instance of their corresponding model. 
+instance of their corresponding model. The JpaRepository is an extension of the CRUD Repository which have specific to 
+API methods. No additional coding is required for this part as it is all that is needed to access those methods. All    
+that really needs to be specified are the parameters for which model the repository is for as well as the type of Id,   
+in this case being JpaRepository<Book, Long> and JpaRepository<Author, Long>.
 
 In the Author and Book Controllers is where it gets a little tricky. Each class is labeled with a @Controller 
 annotation to indicate they are controllers. The @RequestMapping represents the HTTP mapping the controller. The 

@@ -14,27 +14,27 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class CrudApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(CrudApplication.class);
+//	private static final Logger log = LoggerFactory.getLogger(CrudApplication.class);
 
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner test (BookRepository bookRepository, AuthorRepository authorRepository) {
-		return (args) -> {
-			Author author = new Author();
-			authorRepository.save(author);
-			Book book1 = new Book("title1", author);
-			Book book2 = new Book("title2", author);
-			Book book3 = new Book("title3", author);
-
-			bookRepository.save(book1);
-			bookRepository.save(book2);
-			bookRepository.save(book3);
-
-			log.info("Samples books saved");
-		};
-	}
+//	@Bean
+//	public CommandLineRunner test (BookRepository bookRepository, AuthorRepository authorRepository) {
+//		return (args) -> {
+//			Author author = new Author();
+//			authorRepository.save(author);
+//			Book book1 = new Book("title1", author);
+//			Book book2 = new Book("title2", author);
+//			Book book3 = new Book("title3", author);
+//
+//			bookRepository.save(book1);
+//			bookRepository.save(book2);
+//			bookRepository.save(book3);
+//
+//			log.info("Samples books saved");
+//		};
+//	}
 }
