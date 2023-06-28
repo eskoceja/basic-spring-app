@@ -30,5 +30,20 @@ ${} indicate objects, *{} binds the field to it's corresponding object, and ${} 
 
 How to run: you can just run the main CrudApplication class. Then you open the localhost as instructed in the 
 information shown in the Run field; usually 8080 (http://localhost:8080/). Make sure what yours is before, though.  
-The Thymeleaf templates should show with /books or /authors and from there you can manipulate the data with CRUD. 
+The Thymeleaf templates should show with /authors or /books. For my application, you must create an author first, then 
+you can go to books and when you create a book you can select which author the book is associated with. If you go back  
+to authors you will see that the book is listed in the books section of the table. 
+
+So basically:
+1. Go to http://localhost:8080/authors
+2. Create a couple of new authors (ex: Charlotte Brontë and Anne Brontë)
+3. Go back to Authors
+4. Go to Books
+5. Create new books (ex: Jane Eyre) and select Anne Brontë
+6. Go back to Books
+7. Go back to Authors - UH-oh! You selected the wrong author, Jane Eyre was written by Charlotte!! 
+8. Go back to Books
+9. Update Book
+10. Switch to Charlotte Brontë
+11. etc.. you should be able to manipulate data using the CRUD functionalities!
 
