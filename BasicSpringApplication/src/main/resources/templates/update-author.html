@@ -10,7 +10,6 @@
 <h1>Update Author</h1>
 
 <form th:action="@{/authors}" th:object="${author}" method="post">
-<!--    /update/{id}(id=${author.id})-->
     <input type="hidden" th:field="*{id}">
 
     <div class="mb-3">

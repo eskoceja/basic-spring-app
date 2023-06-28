@@ -28,7 +28,6 @@
             </ul>
         </td>
         <td>
-<!--            <a th:href="@{/authors/{id}(id=${author.id})}"> <button type="button" class="btn btn-primary">View</button> </a>-->
             <a th:href="@{'/authors/update/'+${author.id}}"> <button type="button" class="btn btn-primary">Update</button> </a>
             <a th:href="@{'/authors/delete/'+${author.id}}"> <button type="button" class="btn btn-primary">Delete</button> </a>
         </td>

@@ -38,7 +38,7 @@ public class AuthorController {
     //READ
     @GetMapping("")
     public String getAllAuthors(Model model) {
-        List<Author> authors =authorRepository.findAll();
+        List<Author> authors = authorRepository.findAll();
         model.addAttribute("authors", authors);
         return "author-list.html";
     }
@@ -46,7 +46,7 @@ public class AuthorController {
     @GetMapping("/{id}")
     public String getAuthorById(@PathVariable("id") Long id, Model model) {
         Author author = authorRepository.findById(id).orElse(null);
-        if(author==null) {
+        if (author == null) {
             return "error.html";
         }
         model.addAttribute("author", author);
@@ -57,7 +57,7 @@ public class AuthorController {
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
         Author author = authorRepository.findById(id).orElse(null);
-        if(author == null) {
+        if (author == null) {
             return "error.html";
         }
         model.addAttribute("author", author);
@@ -67,7 +67,7 @@ public class AuthorController {
     @PostMapping("{id}")
     public String updateAuthor(@PathVariable("id") Long id, @ModelAttribute("author") Author updatedAuthor) {
         Author author = authorRepository.findById(id).orElse(null);
-        if(author==null) {
+        if (author == null) {
             return "error.html";
         }
         author.setName(updatedAuthor.getName());
@@ -79,7 +79,7 @@ public class AuthorController {
     @GetMapping("/delete/{id}")
     public String deleteAuthor(@PathVariable("id") Long id) {
         Author author = authorRepository.findById(id).orElse(null);
-        if(author == null) {
+        if (author == null) {
             return "error.html";
         }
         authorRepository.delete(author);

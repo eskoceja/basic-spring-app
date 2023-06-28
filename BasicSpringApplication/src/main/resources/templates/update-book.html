@@ -10,7 +10,6 @@
 <h1>Update Book</h1>
 
 <form th:action="@{/books}" th:object="${book}" method="post">
-<!--    /update/{id}(id=${book.id})-->
     <input type="hidden" th:field="*{id}">
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
@@ -18,7 +17,6 @@
     </div>
     <div class="mb-3">
         <label for="author" class="form-label">Author:</label>
-<!--        <input class="form-control" id="author" type="text" th:field="*{author.name}" required>-->
         <select id="author" name="author" required>
             <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
         </select>
