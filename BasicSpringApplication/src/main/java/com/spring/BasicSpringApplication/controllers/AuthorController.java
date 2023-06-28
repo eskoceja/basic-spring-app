@@ -2,6 +2,7 @@ package com.spring.BasicSpringApplication.controllers;
 
 import com.spring.BasicSpringApplication.models.Author;
 import com.spring.BasicSpringApplication.repositories.AuthorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/authors")
 public class AuthorController {
+//    @Autowired
     private AuthorRepository authorRepository;
+
+    @Autowired
+    public AuthorController(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
+
 
     //CREATE
     @GetMapping("/create")

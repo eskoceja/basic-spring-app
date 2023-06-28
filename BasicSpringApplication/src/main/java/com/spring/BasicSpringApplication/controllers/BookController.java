@@ -13,11 +13,18 @@ import java.util.List;
 @Controller
 @RequestMapping("/books")
 public class BookController {
-    @Autowired
+//    @Autowired
     private BookRepository bookRepository;
 
-    @Autowired
+//    @Autowired
     private AuthorRepository authorRepository;
+
+    @Autowired
+    public BookController(BookRepository bookRepository, AuthorRepository authorRepository) {
+        this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
+    }
+
 
     //CREATE
     @GetMapping("/create")
@@ -28,7 +35,7 @@ public class BookController {
     }
 
     @PostMapping
-    public String createBook(@ModelAttribute Book newBook) {
+    public String createBook(@ModelAttribute("book") Book newBook) {
         bookRepository.save(newBook);
         return "redirect:/books";
     }
@@ -52,7 +59,7 @@ public class BookController {
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
         Book book = bookRepository.findById(id).orElse(null);
-        if(book == null) {
+        if (book == null) {
             return "error.html";
         }
         model.addAttribute("book", book);
@@ -63,7 +70,7 @@ public class BookController {
     @PostMapping("/{id}")
     public String updateBook(@PathVariable("id") Long id, @ModelAttribute Book updatedBook) {
         Book book = bookRepository.findById(id).orElse(null);
-        if(book == null) {
+        if (book == null) {
             return "error.html";
         }
         book.setTitle(updatedBook.getTitle());
