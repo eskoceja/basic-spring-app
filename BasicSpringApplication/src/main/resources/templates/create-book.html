@@ -13,17 +13,25 @@
 
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
-        <input class="form-control" id="title" type="text" th:field="*{title} " required>
+        <input class="form-control" id="title" type="text" th:field="*{title}" required>
+<!--        th:field="*{title}"-->
     </div>
     <div class="mb-3">
         <label for="author" class="form-label">Author:</label>
-        <input class="form-control" id="author" type="text" th:field="*{author.name}" required>
-<!--        author.name?-->
+<!--        <input class="form-control" id="author" type="text" th:field="*{author}" required>-->
+<!--        th:field="*{author}"-->
+        <select id="author" name="author" required>
+            <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+        </select>
     </div>
     <div>
         <button type="submit" class="btn btn-primary">Create</button>
     </div>
 </form>
+
+<br>
+
+<a href="/books"><button type="button" class="btn btn-primary">Back to Books</button></a>
 
 </body>
 </html>

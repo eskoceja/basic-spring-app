@@ -9,8 +9,10 @@
 
 <h1>Update Author</h1>
 
+<form th:action="@{/authors}" th:object="${author}" method="post">
+<!--    /update/{id}(id=${author.id})-->
+    <input type="hidden" th:field="*{id}">
 
-<form th:action="@{/authors/update/{id}(id=${author.id})}" th:object="${author}" method="post">
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input class="form-control" id="name" type="text" th:field="*{name}" required>

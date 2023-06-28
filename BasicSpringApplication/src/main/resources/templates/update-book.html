@@ -9,17 +9,22 @@
 
 <h1>Update Book</h1>
 
-<form th:action="@{/books/update/{id}(id=${book.id})}" th:object="${book}" method="post">
+<form th:action="@{/books}" th:object="${book}" method="post">
+<!--    /update/{id}(id=${book.id})-->
+    <input type="hidden" th:field="*{id}">
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input class="form-control" id="title" type="text" th:field="*{title}" required>
     </div>
     <div class="mb-3">
         <label for="author" class="form-label">Author:</label>
-        <input class="form-control" id="author" type="text" th:field="*{author.name}" required>
+<!--        <input class="form-control" id="author" type="text" th:field="*{author.name}" required>-->
+        <select id="author" name="author" required>
+            <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+        </select>
     </div>
     <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary" value="update">Update</button>
     </div>
 </form>
 
