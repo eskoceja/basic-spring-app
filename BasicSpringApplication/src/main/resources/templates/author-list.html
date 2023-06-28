@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Author List</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Author List</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Books</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.id}"></td>
+        <td th:text="${author.name}"></td>
+        <td>
+            <ul>
+                <li th:each="book : ${author.books}" th:text="${book.title}"></li>
+            </ul>
+        </td>
+        <td>
+            <a th:href="@{/authors/{id}(id=${author.id})}"> <button type="button" class="btn btn-primary">View</button> </a>
+            <a th:href="@{/authors/update/{id}(id=${author.id})}"> <button type="button" class="btn btn-primary">Update</button> </a>
+            <a th:href="@{/authors/delete/{id}(id=${author.id})}"> <button type="button" class="btn btn-primary">Delete</button> </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/authors/new"> <button class="btn btn-primary">Create new author</button> </a>
+
+</body>
+</html>
