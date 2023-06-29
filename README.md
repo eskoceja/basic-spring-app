@@ -47,3 +47,10 @@ So basically:
 10. Switch to Charlotte Brontë
 11. etc.. you should be able to manipulate data using the CRUD functionalities!
 
+### Remember to check the database!
+1. Go to http://localhost:8080/h2-console/
+2. In the JDBC URL, type: jdbc:h2:mem:dcbapp
+3. No password required per configuration
+4. CONNECT
+5. Once you have added authors and books, you can call queries and your data should appear! Pretty cool stuff!
+
