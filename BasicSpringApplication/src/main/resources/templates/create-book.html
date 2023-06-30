@@ -5,30 +5,34 @@
     <title>Create Book</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-body-secondary">
 
-<h1>Create Book</h1>
+<div class="card w-75 mb-3">
+    <div class="card-body">
+        <h3 class="card-title">Create Book</h3>
 
-<form th:action="@{/books}" th:object="${book}" method="post">
+        <form th:action="@{/books}" th:object="${book}" method="post">
 
-    <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input class="form-control" id="title" type="text" th:field="*{title}" required>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input class="form-control" id="title" type="text" th:field="*{title}" required>
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author:</label>
+                <select id="author" name="author" required class="form-select">
+                    <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
     </div>
-    <div class="mb-3">
-        <label for="author" class="form-label">Author:</label>
-        <select id="author" name="author" required>
-            <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
-        </select>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </div>
-</form>
+</div>
 
-<br>
-
-<a href="/books"><button type="button" class="btn btn-primary">Back to Books</button></a>
+<a href="/books">
+    <button type="button" class="btn btn-primary">Back to Books</button>
+</a>
 
 </body>
 </html>

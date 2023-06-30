@@ -5,21 +5,25 @@
     <title>Update Author</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-body-secondary">
 
-<h1>Update Author</h1>
+<div class="card w-75 mb-3">
+    <div class="card-body">
+        <h3 class="card-title">Update Author</h3>
 
-<form th:action="@{/authors}" th:object="${author}" method="post">
-    <input type="hidden" th:field="*{id}">
+        <form th:action="@{/authors}" th:object="${author}" method="post">
+            <input type="hidden" th:field="*{id}">
 
-    <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input class="form-control" id="name" type="text" th:field="*{name}" required>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input class="form-control" id="name" type="text" th:field="*{name}" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Update</button>
-    </div>
-</form>
+</div>
 
 </body>
 </html>

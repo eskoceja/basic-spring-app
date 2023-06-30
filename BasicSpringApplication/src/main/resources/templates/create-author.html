@@ -5,23 +5,28 @@
     <title>Create Author</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-body-secondary">
 
-<h1>Create Author</h1>
+<div class="card w-75 mb-3">
+    <div class="card-body">
+        <h3 class="card-title">Create Author</h3>
 
-<form th:action="@{/authors}" th:object="${author}" method="post">
-    <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input class="form-control" id="name" type="text" th:field="*{name}" required>
+        <form th:action="@{/authors}" th:object="${author}" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input class="form-control" id="name" type="text" th:field="*{name}" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </div>
-</form>
+</div>
 
-<br>
-
-<a href="/authors"><button type="button" class="btn btn-primary">Back to Authors</button></a>
+<a href="/authors">
+    <button type="button" class="btn btn-primary">Back to Authors</button>
+</a>
 
 </body>
 </html>
